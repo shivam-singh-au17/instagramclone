@@ -1,10 +1,14 @@
 import { React } from "react";
 import { Route, Routes } from "react-router";
 import styled from "styled-components";
-import { Header } from "./Header/Header";
-import { DispayPosts } from "./MainSection/DisplayPosts";
+import { Header } from "./Header";
+import { DispayPosts } from "./DisplayPosts";
+import { SinglePost } from "./SinglePost";
 
 const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: relative;
     padding: 30px 20px;
 `;
 
@@ -98,6 +102,7 @@ const Profile = () => {
                     <Route path='/tagged' component={} />
                 </Routes> */}
                 <DispayPosts {...profileData} />
+                {/* <SinglePost /> */}
             </Container>
         </>
     );

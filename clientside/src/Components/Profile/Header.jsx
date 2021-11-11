@@ -109,6 +109,7 @@ const Tabs = styled.div`
                 color: #262626;
                 cursor: pointer;
                 border-top: 1px solid #262626;
+                margin-top: -1px;
             }
 
             &svg:hover {

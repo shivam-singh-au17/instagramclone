@@ -69,19 +69,23 @@ const changeNumberFormat = (num) => {
     )
 }
 
-const DispayPosts = ({ posts }) => {
+const DispayPosts = ({ posts, handlePostClick }) => {
     const [showLikes, setShowLikes] = useState(-1);
 
     const handleHover = (i) => {
         setShowLikes(i);
     }
 
-    console.log(posts);
+    // console.log(posts);
     return (
         <>
             <Container>
                 {posts && posts.map((el, index) =>
-                    <PostItem onMouseEnter={() => handleHover(index)} onMouseLeave={() => handleHover(-1)}>
+                    <PostItem
+                        onMouseEnter={() => handleHover(index)}
+                        onMouseLeave={() => handleHover(-1)}
+                        onClick={() => handlePostClick(el.id)}
+                    >
                         <img src={el.item} alt={index} key={index} />
                         
                         {showLikes === index
@@ -91,7 +95,7 @@ const DispayPosts = ({ posts }) => {
                                     <FavoriteIcon />
                                 </div>
                                 <div className="commentsBox">
-                                    {changeNumberFormat(el.comments)}
+                                    {changeNumberFormat(el.comments_count)}
                                     <ModeCommentIcon />
                                 </div>
                             </HoveredDiv>

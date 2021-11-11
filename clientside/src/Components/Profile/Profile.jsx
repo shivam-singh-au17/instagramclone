@@ -1,4 +1,5 @@
 import { React } from "react";
+import { Route, Routes } from "react-router";
 import styled from "styled-components";
 import { Header } from "./Header/Header";
 import { DispayPosts } from "./MainSection/DisplayPosts";
@@ -13,6 +14,7 @@ const Profile = () => {
         username: "taylorswift",
         display_name: "Taylor Swift",
         is_verified: true,
+        bio: `Happy, free, confused, lonely at the same time.`,
         posts_count: 516,
         followers_count: 183,
         following_count: 0,
@@ -54,7 +56,7 @@ const Profile = () => {
                 comments: 79843
             },
             {
-                item: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7zzQaEuid5_P8wDqQx2Dg3q3uoFmIiXnrSw&usqp=CAU",
+                item: "https://pbs.twimg.com/media/FDEP10uX0AI7RRg?format=jpg&name=large",
                 likes: 64732,
                 comments: 1450
             },
@@ -90,6 +92,11 @@ const Profile = () => {
         <>
             <Container>
                 <Header {...profileData} />
+                {/* <Routes>
+                    <Route path='/' component={DispayPosts} />
+                    <Route path='/reels' component={} />
+                    <Route path='/tagged' component={} />
+                </Routes> */}
                 <DispayPosts {...profileData} />
             </Container>
         </>

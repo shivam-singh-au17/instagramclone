@@ -5,31 +5,30 @@ import ModeCommentIcon from '@mui/icons-material/ModeComment';
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 32%);
-    gap: 1.33%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
     /* background-color: yellow; */
-    justify-content: space-between;
     
     img {
         width: 100%;
-        height: 100%;
+        height: 300px;
         object-fit: cover;
     }
 `;
 
 const HoveredDiv = styled.div`
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 100%;
-    color: white;
     display: flex;
+    position: absolute;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
-    position: absolute;
-    cursor: pointer;
     top: 0;
-    height: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 18px;
+    width: 100%;
+    height: 99%;
+    cursor: pointer;
 
     svg {
         font-size: 18px;
@@ -41,7 +40,6 @@ const HoveredDiv = styled.div`
         margin-right: 25px;
         display: flex;
         align-items: center;
-
     }
 
     .commentsBox {
@@ -76,7 +74,6 @@ const DispayPosts = ({ posts }) => {
 
     const handleHover = (i) => {
         setShowLikes(i);
-        console.log(i);
     }
 
     console.log(posts);

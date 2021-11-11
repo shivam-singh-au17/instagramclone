@@ -1,8 +1,9 @@
 import './App.css';
 import { Profile } from './Components/Profile/Profile';
+import { BrowserRouter } from 'react-router-dom';
 
 const containerStyle = {
-  width: "935px",
+  width: "940px",
   // backgroundColor: "whitesmoke",
   margin: "auto"
 }
@@ -10,9 +11,11 @@ const containerStyle = {
 function App() {
   return (
     <>
-      <div style={containerStyle}>
-        <Profile />
-      </div>
+      <BrowserRouter>
+        <div style={containerStyle}>
+          <Profile />
+        </div>
+      </BrowserRouter>
     </>
   );
 }

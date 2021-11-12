@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Header } from "./Header";
 import { DispayPosts } from "./DisplayPosts";
 import { SinglePost } from "./SinglePost";
+import { ClassNames } from "@emotion/react";
 
 const Container = styled.div`
     display: flex;
@@ -11,7 +12,88 @@ const Container = styled.div`
     position: relative;
     padding: 30px 20px;
     min-height: 100vh;
-    background-color: burlywood;
+    /* background-color: burlywood; */
+`;
+
+const DisplaySinglePost = styled.div`
+    display: flex;
+    position: fixed;
+    justify-content: space-evenly;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    svg {
+        transform: rotate(270deg);
+    }
+`;
+
+const LeftButton = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    /* font-size: 30px; */
+    font-weight: bold;
+    z-index: 300;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    cursor: pointer;
+
+    svg {
+        transform: rotate(270deg);
+    }
+
+    .hideBtn {
+        display: none !important;
+    }
+
+    .showBtn {
+        display: flex !important;
+    }
+`;
+
+const RightButton = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    /* font-size: 30px; */
+    font-weight: bold;
+    z-index: 300;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    cursor: pointer;
+
+    svg {
+        transform: rotate(90deg);
+    }
+
+    .hideBtn {
+        display: none !important;
+    }
+
+    .showBtn {
+        display: flex !important;
+    }
+`;
+
+const CancelButton = styled.div`
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    position: absolute;
+    cursor: pointer;
 `;
 
 const Profile = () => {
@@ -33,6 +115,7 @@ const Profile = () => {
                 item: "https://www.rollingstone.com/wp-content/uploads/2019/12/TaylorSwiftTimIngham.jpg",
                 likes: 1303495,
                 comments_count: 49,
+                caption: "I know some of you thought that would be like trying to solve a crossword and realizing there’s no right answer BUT…you played it good & right. Congrats pals, you guessed the correct titles and feature artists on Red (my version). The vault tracks will feature @chrisstapleton, @phoebebridgers, @markfoster and the first song @teddysphotos and I ever wrote together the first time we met in 2012❗️I can’t express my gratitude enough to these artists for helping me bring these songs to life. I can’t wait til we can dust off our highest hopes and relive these memories together. We’ll also be making a bunch of new ones too, since Red (Taylor’s Version) includes so many songs you haven’t heard yet. Til then, I’ll be counting down and picturing it all in my head. In burning red."
             },
             {
                 id: 102,
@@ -123,16 +206,37 @@ const Profile = () => {
                     <Route path='/tagged' component={} />
                 </Routes> */}
                 <DispayPosts {...profileData} handlePostClick={handlePostClick} />
-                {profileData.posts.map((el) => {
-                    console.log("index", el.id, selectedPost);
-                    if (el.id === selectedPost) {
-                        console.log("Yay", el.id, el);
-                        return <SinglePost {...el} />
-                    } else {
-                        return null;
-                    }
-                })
-                }
+                {selectedPost >= 0
+                    ? <>
+                        <DisplaySinglePost>
+                            <CancelButton onClick={()=> setSelectedPost(-1)}>
+                                <svg aria-label="Close" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg>
+                            </CancelButton>
+                            {selectedPost > 0 ? <LeftButton
+                                onClick={() => { if (selectedPost > 0) return setSelectedPost(selectedPost - 1); }}>
+                                <svg aria-label="Go Back" class="_8-yf5 " color="#000000" fill="#000000" height="16" role="img" viewBox="0 0 48 48" width="16"><path d="M40 33.5c-.4 0-.8-.1-1.1-.4L24 18.1l-14.9 15c-.6.6-1.5.6-2.1 0s-.6-1.5 0-2.1l16-16c.6-.6 1.5-.6 2.1 0l16 16c.6.6.6 1.5 0 2.1-.3.3-.7.4-1.1.4z"></path></svg>
+                            </LeftButton>
+                                : null
+                            }
+                            {profileData.posts.map((el, index) => {
+                                if (index === selectedPost) {
+                                    return <SinglePost {...el} user={profileData.username} profileImg={profileData.profileImg} is_verified={profileData.is_verified} />
+                                } else {
+                                    return null;
+                                }
+                            })
+                            }
+                            {selectedPost < profileData.posts.length-1
+                                ?< RightButton
+                                onClick={() => { return setSelectedPost(selectedPost + 1); }}
+                            >
+                                <svg aria-label="Next" class="_8-yf5 " color="#000000" fill="#000000" height="16" role="img" viewBox="0 0 48 48" width="16"><path d="M40 33.5c-.4 0-.8-.1-1.1-.4L24 18.1l-14.9 15c-.6.6-1.5.6-2.1 0s-.6-1.5 0-2.1l16-16c.6-.6 1.5-.6 2.1 0l16 16c.6.6.6 1.5 0 2.1-.3.3-.7.4-1.1.4z"></path></svg>
+                                </RightButton>
+                                : null
+                            }
+                        </DisplaySinglePost>
+                    </>
+                    : null}
             </Container>
         </>
     );

@@ -84,7 +84,7 @@ const DispayPosts = ({ posts, handlePostClick }) => {
                     <PostItem
                         onMouseEnter={() => handleHover(index)}
                         onMouseLeave={() => handleHover(-1)}
-                        onClick={() => handlePostClick(el.id)}
+                        onClick={() => handlePostClick(index)}
                     >
                         <img src={el.item} alt={index} key={index} />
                         

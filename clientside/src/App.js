@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 const containerStyle = {
   width: "940px",
-  // backgroundColor: "whitesmoke",
   margin: "auto"
 }
 
@@ -12,7 +11,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div style={containerStyle}>
+        <div className="main-container" style={containerStyle}>
           <Profile />
         </div>
       </BrowserRouter>

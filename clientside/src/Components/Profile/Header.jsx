@@ -23,9 +23,12 @@ const RightPart = styled.div`
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    justify-content: left;
 
     ul {
         display: flex;
+        justify-content: left;
+        padding-inline-start: 0px;
     }
 
     li {
@@ -38,7 +41,6 @@ const Name = styled.div`
     font-size: 28px;
     line-height: 32px;
     font-weight: 300;
-    margin-bottom: 20px;
 `;
 
 const BlueTick = styled.img`
@@ -136,7 +138,7 @@ const Header = ({ profileImg, username, is_verified, posts_count, followers_coun
                                 : null
                         }
                     </Name>
-                    <section style={{ marginBottom: "20px" }}>
+                    <section>
                         <ul>
                             <li>
                                 <b>{posts_count}</b> posts

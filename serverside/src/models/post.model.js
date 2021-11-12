@@ -3,13 +3,15 @@ let Schema = mongoose.Schema;
 
 let postSchema = new Schema(
   {
-    title: { type: String },
-    description: { type: String },
-    author: { type: String },
+    userPostPicVideo: { type: Array },
+    userVideosViews: { type: Number },
+    userPostLikedCount: { type: Number },
+    userPostCommentsCount: { type: String },
+    userPostDeseription: { type: String },
   },
   { timestamps: true }
 );
 
-let Post = mongoose.model("instaPost", postSchema);
+let Post = mongoose.model("allUser", postSchema);
 
 module.exports = Post;

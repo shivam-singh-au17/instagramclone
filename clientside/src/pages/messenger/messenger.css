@@ -1,0 +1,136 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #262626;
+}
+
+.messenger {
+	height: calc(100vh - 70px);
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	border: 1px solid #dadbda;
+}
+
+.chatMenu {
+	width: 349px;
+	border: 1px solid #dadbda;
+	border-right: 0px;
+}
+
+.chatMenuInput {
+	width: 90%;
+	padding: 10px 0;
+	border: none;
+	border-bottom: 1px solid gray;
+}
+
+.chatBox {
+	width: 583px;
+	border: 1px solid #dadbda;
+}
+
+.chatBoxWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+}
+.svgchatmenu {
+	display: inline-block;
+	transform: rotate(180deg);
+}
+.chatMenuUsername {
+	padding: 10px 20px;
+	font-weight: 600;
+	display: flex;
+	justify-content: space-between;
+}
+.fs-16 {
+	font-size: 16px;
+}
+.ml-20 {
+	margin-left: 40px;
+}
+
+.messagetypes {
+	border: 1px solid #dadbda;
+	display: flex;
+}
+.messagesectypes {
+	padding: 12px;
+	width: 105px;
+	font-weight: 500;
+	font-size: 14px;
+	color: #26262649;
+	text-align: center;
+}
+.activeMessageTab {
+	color: #262626;
+	border-bottom: 1px solid black;
+}
+
+.chatBoxBottom {
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.chatMessageInput {
+	width: 80%;
+	font-size: 14px;
+	padding: 0 8px 0 11px;
+	border: 0px;
+}
+
+.chatSubmitButton {
+	width: 70px;
+	height: 40px;
+	border: none;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	color: #0095f6;
+	background-color: #fff;
+}
+
+.chatOnline {
+	flex: 3;
+}
+
+.chatMenuWrapper,
+.chatBoxWrapper,
+.chatOnlineWrapper {
+	height: 100%;
+}
+
+/* .noConversationText {
+	position: absolute;
+	top: 10%;
+	font-size: 50px;
+	color: rgb(224, 220, 220);
+	cursor: default;
+} */
+
+@media screen and (max-width: 768px) {
+	.chatMenu {
+		flex: 1;
+	}
+
+	.chatMenuInput {
+		display: none;
+	}
+
+	.chatBox {
+		flex: 10;
+	}
+
+	.chatOnline {
+		flex: 1px;
+	}
+}

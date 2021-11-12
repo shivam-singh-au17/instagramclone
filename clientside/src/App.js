@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "./App.css";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
@@ -35,6 +36,19 @@ function App() {
 			</Router>
 		</>
 	);
+=======
+import Home from "./pages/Home";
+import { Route, Routes } from "react-router-dom";
+
+function App() {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
+  );
+>>>>>>> e9d6f9f7002b8b9e4f2bc6d4ee1b7bfbf2c6b1f8
 }
 
 export default App;

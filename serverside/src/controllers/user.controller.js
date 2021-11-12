@@ -1,14 +1,14 @@
 const express = require("express");
-const Post = require("../models/post.model");
+const User = require("../models/user.model");
 const router = express.Router();
 
-router.post("/post", async (req, res) => {
+router.post("/user", async (req, res) => {
   try {
-    let post = new Post(req.body);
-    post = await post.save();
+    let user = new User(req.body);
+    user = await user.save();
     res.status(200).json({
       status: 200,
-      data: post,
+      data: user,
     });
   } catch (err) {
     res.status(400).json({
@@ -18,12 +18,12 @@ router.post("/post", async (req, res) => {
   }
 });
 
-router.get("/post", async (req, res) => {
+router.get("/user", async (req, res) => {
   try {
-    let posts = await Post.find();
+    let users = await User.find();
     res.status(200).json({
       status: 200,
-      data: [posts],
+      data: users,
     });
   } catch (err) {
     res.status(400).json({
@@ -33,20 +33,20 @@ router.get("/post", async (req, res) => {
   }
 });
 
-router.get("/post/:postId", async (req, res) => {
+router.get("/user/:userId", async (req, res) => {
   try {
-    let post = await Post.findOne({
-      _id: req.params.postId,
+    let user = await User.findOne({
+      _id: req.params.userId,
     });
-    if (post) {
+    if (user) {
       res.status(200).json({
         status: 200,
-        data: post,
+        data: user,
       });
     }
     res.status(400).json({
       status: 400,
-      message: "No post found",
+      message: "No user found",
     });
   } catch (err) {
     res.status(400).json({
@@ -56,20 +56,20 @@ router.get("/post/:postId", async (req, res) => {
   }
 });
 
-router.put("/post/:postId", async (req, res) => {
+router.put("/user/:userId", async (req, res) => {
   try {
-    let post = await Post.findByIdAndUpdate(req.params.postId, req.body, {
+    let user = await User.findByIdAndUpdate(req.params.userId, req.body, {
       new: true,
     });
-    if (post) {
+    if (user) {
       res.status(200).json({
         status: 200,
-        data: post,
+        data: user,
       });
     }
     res.status(400).json({
       status: 400,
-      message: "No post found",
+      message: "No user found",
     });
   } catch (err) {
     res.status(400).json({
@@ -79,18 +79,18 @@ router.put("/post/:postId", async (req, res) => {
   }
 });
 
-router.delete("/post/:postId", async (req, res) => {
+router.delete("/user/:userId", async (req, res) => {
   try {
-    let post = await Post.findByIdAndRemove(req.params.postId);
-    if (post) {
+    let user = await User.findByIdAndRemove(req.params.userId);
+    if (user) {
       res.status(200).json({
         status: 200,
-        message: "Post deleted successfully",
+        message: "User deleted successfully",
       });
     } else {
       res.status(400).json({
         status: 400,
-        message: "No post found",
+        message: "No user found",
       });
     }
   } catch (err) {
@@ -102,3 +102,5 @@ router.delete("/post/:postId", async (req, res) => {
 });
 
 module.exports = router;
+
+

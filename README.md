@@ -14,14 +14,14 @@ git clone https://github.com/shivam-singh-au17/ProjectMediumClone
 ```
 ### And then open it in VS Code and then start two Git Bash terminal at the same location. Then enter these two commands manually in first terminal.  
 ```
-cd backendfile
+cd serverside
 ```
 ```
 nodemon server.js
 ```
 ### And then open second Git Bash terminal and then enter these two commands manually in this terminal.  
 ```
-cd projectmedium
+cd clientside
 ```
 ```
 npm start
@@ -53,43 +53,12 @@ npm start
 
 # Some screenshots of our project
 
-- This is the Home Page of our cloned website.
+1.
+2.
+3.
+4.
+5.
 
-![Screenshot (149).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633272004353/g1_5mEy9Q.png)
-
-![Screenshot (151).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633272026893/1-hN02mK2.png)
-
-- This is the Login Page of our cloned website.
-
-![Screenshot 2021-10-03 201202.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633272156724/ShFDs5IGJ.png)
-
-- This is the Our Story of our cloned website.
-
-![Screenshot (159).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633273019221/240uzSF-J.png)
-
-![Screenshot (160).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633273035022/Yp0Xm1dBq.png)
-
-- This is the Write Page of our cloned website.
-
-![Screenshot (152).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633272629612/gQwsyCgvx.png)
-
-![Screenshot (154).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633272657964/j9nUcd0Ax.png)
-
-- This is the Membership Page of our cloned website.
-
-![Screenshot (155).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633272681816/PO2yUhfjR.png)
-
-- This is the Home Page after the login of our cloned website.
-
-![Screenshot (156).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633272703065/Z1lx17aoG.png)
-
-- This is the Story Page of our cloned website.
-
-![Screenshot (157).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633272719128/KEkHKf1By.png)
-
-- This is the Saved Blog Page of our cloned website.
-
-![Screenshot (158).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1633272733573/ZPhvNH6k9.png)
 
 ***So this was the project we have created with our efforts. We have added the screenshots for our audience to understand easily.***
 
@@ -105,13 +74,15 @@ npm start
 # Team members and contributors
 **By following a well-structured way, all of us successfully completed our responsibilities before the given time. The members of team MEDIUM are-**
 
-#### 1. Asutosh Behera
-**Github:**  [asutoshb](https://github.com/asutoshb) 
-#### 2. Naveen Kumar
-**Github:**  [Naveenverma440](https://github.com/Naveenverma440) 
+#### 1. Sagar Biswas
+**Github:**  [mrsagar105](https://github.com/mrsagar105) 
+#### 2. Sunny Dhanwani
+**Github:**  [SunnyDhanwani](https://github.com/SunnyDhanwani) 
+#### 2. Dheeraj Bisht
+**Github:**  [dheerajbisht362](https://github.com/dheerajbisht362) 
 
 # Conclusion
-- I would like to thank, all of my team members, Asutosh Behera and Naveen Kumar for their contribution. 
+- I would like to thank, all of my team members, Sagar Biswas, Sunny Dhanwani and Dheeraj Bisht for their contribution. 
 - I am very glad that I completed this project ahead of time and got a good knowledge of Reject Framework and Figma File and got valuable experience.
 - I’m feeling very proud to get such hard-working team members and also feeling very fortunate for being a part of Masai School because of which I got the experience of cloning such a wonderful website.
 ### Thank you for giving it a read...

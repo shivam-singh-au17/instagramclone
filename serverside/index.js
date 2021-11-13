@@ -9,15 +9,17 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const storyRoute = require("./routes/stories");
+const conversationRoute = require("./routes/conversations");
+const messagesRoute = require("./routes/messages");
 
 dotenv.config();
 
 mongoose.connect(
-  process.env.MONGO_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("Connected to Mongodb");
-  }
+	process.env.MONGO_URL,
+	{ useNewUrlParser: true, useUnifiedTopology: true },
+	() => {
+		console.log("Connected to Mongodb");
+	}
 );
 
 // middleware
@@ -30,11 +32,13 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/stories", storyRoute);
+app.use("/api/conversions", conversationRoute);
+app.use("/api/messages", messagesRoute);
 
 app.get("/", (req, res) => {
-  res.send("Welcome to home page");
+	res.send("Welcome to home page");
 });
 
 app.listen(8800, () => {
-  console.log("backend server is running!");
+	console.log("backend server is running!");
 });

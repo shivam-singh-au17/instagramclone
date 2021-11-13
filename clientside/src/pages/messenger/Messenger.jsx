@@ -20,7 +20,16 @@ export default function Messenger() {
 	const [currentMessageSender, setCurrentMessageSender] = useState(null);
 	const socket = useRef();
 	// const { user } = useContext(AuthContext);
-	const user = 1;
+	const id = "618ec48ccb60486757fe31db";
+	const [user, setUser] = useState({});
+	useEffect(() => {
+		axios
+			.get(`http://localhost:8800/api/users/${id}`)
+			.then((res) => res.data)
+			.then((res) => {
+				setUser(res);
+			});
+	}, []);
 	const scrollRef = useRef();
 
 	useEffect(() => {

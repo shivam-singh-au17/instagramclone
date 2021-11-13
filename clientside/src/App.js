@@ -1,24 +1,19 @@
 import Home from "./pages/Home";
-import Messenger from "./pages/messenger/Messenger";
 import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import { Profile } from "./pages/Profile/Profile";
 
 function App() {
-	const user = [];
-	return (
-		<>
-			<Routes>
-				<Route path="/" element={<Home />} />
-
-				{/* <Route
-					path="/login"
-					element={user ? < Navigate to="/" /> : "Login"}
-				>
-					{user ? <Navigate to="/" /> : "Login"}
-				</Route> */}
-				<Route path="/messenger" element={<Messenger />} />
-			</Routes>
-		</>
-	);
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:userId" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Home />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;

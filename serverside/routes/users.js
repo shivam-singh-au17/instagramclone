@@ -95,7 +95,7 @@ router.put("/save/:id", async (req, res) => {
       res.status(200).json("post saved");
     } else {
       await currentUser.updateOne({ $pull: { savedPosts: req.params.id } });
-      res.status(403).json("post unsaved");
+      res.status(200).json("post unsaved");
     }
   } catch (err) {
     return res.status(500).json(err);

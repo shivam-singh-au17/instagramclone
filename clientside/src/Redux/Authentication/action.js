@@ -25,7 +25,7 @@ export const logout_suc=()=>{
 
 export const loginUser = ({email,password}) => (dispatch) => {
     dispatch(loginReq())
-    return axios.post("http://localhost:2511/login",{username:email,password:password})
+    return axios.get("https://instagramclonedata.herokuapp.com/signup",{username:email,password:password})
     .then(res =>dispatch(loginSuc(res.data.data)))
     .catch(err => dispatch(loginFail(err)))
 }

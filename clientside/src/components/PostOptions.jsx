@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function PostOptions({ handleOptions }) {
   return (
@@ -72,5 +72,9 @@ const Option = styled.div`
   &:nth-child(2) button {
     color: #ed4956;
     font-weight: 600;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;

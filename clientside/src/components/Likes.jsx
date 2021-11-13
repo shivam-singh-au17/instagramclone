@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-export default function Likes({ handleLikes }) {
+export default function Likes({ handleLikes, postId }) {
+  const [likedBy, setLikedBy] = useState([]);
+  const users = [];
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      const res = await axios.get(`http://localhost:8800/api/posts/${postId}`);
+      const userIds = res.data.likes;
+
+      for (let i = 0; i < userIds.length; i++) {
+        // Perform asynchronous actions and await them, it will work
+        const response = await axios.get(
+          `http://localhost:8800/api/users/${userIds[i]}`
+        );
+        users.push(response.data);
+      }
+      setLikedBy(users);
+    };
+    fetchPost();
+  }, []);
+
   return (
     <>
       <OuterContainer>
@@ -19,135 +40,20 @@ export default function Likes({ handleLikes }) {
           </Heading>
 
           <Users>
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>dheeraj</h4>
-                  </Link>
-                  <p>Dheeraj Bisht</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
-
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>yash</h4>
-                  </Link>
-                  <p>Shivam Singh</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
-
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>yash</h4>
-                  </Link>
-                  <p>Suggested for you</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
-
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>yash</h4>
-                  </Link>
-                  <p>Suggested for you</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
-
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>yash</h4>
-                  </Link>
-                  <p>Suggested for you</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
-
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>yash</h4>
-                  </Link>
-                  <p>Suggested for you</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
-
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>yash</h4>
-                  </Link>
-                  <p>Suggested for you</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
-
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>yash</h4>
-                  </Link>
-                  <p>Suggested for you</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
-
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>yash</h4>
-                  </Link>
-                  <p>Suggested for you</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
-
-            <User>
-              <ProfileSection>
-                <img src="images/user-1.jpg" alt="" />
-                <UsernameAndName>
-                  <Link to="/">
-                    <h4>yash</h4>
-                  </Link>
-                  <p>Suggested for you</p>
-                </UsernameAndName>
-              </ProfileSection>
-              <button>Follow</button>
-            </User>
+            {likedBy.map((user) => (
+              <User>
+                <ProfileSection>
+                  <img src={`images/${user.profilePicture}`} alt="" />
+                  <UsernameAndName>
+                    <Link to="/">
+                      <h4>{user.username}</h4>
+                    </Link>
+                    <p>{user.name}</p>
+                  </UsernameAndName>
+                </ProfileSection>
+                <button>Follow</button>
+              </User>
+            ))}
           </Users>
         </LikesContainer>
       </OuterContainer>
@@ -238,8 +144,10 @@ const ProfileSection = styled.div`
 
   img {
     width: 44px;
+    height: 44px;
     border-radius: 50px;
     margin-left: 4px;
+    object-fit: cover;
   }
 `;
 

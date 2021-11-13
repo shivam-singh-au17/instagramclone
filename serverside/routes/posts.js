@@ -61,12 +61,15 @@ router.delete("/:id", async (req, res) => {
 router.put("/:id/like", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
+    const currentUser = await User.findById(req.body.userId);
     if (!post.likes.includes(req.body.userId)) {
       await post.updateOne({ $push: { likes: req.body.userId } });
+      await currentUser.updateOne({ $push: { likedPosts: post._id } });
       res.status(200).json("Post liked");
     } else {
       await post.updateOne({ $pull: { likes: req.body.userId } });
-      res.status(403).json("Post unliked");
+      await currentUser.updateOne({ $pull: { likedPosts: post._id } });
+      res.status(200).json("Post unliked");
     }
   } catch (err) {
     res.status(500).json(err);
@@ -74,9 +77,9 @@ router.put("/:id/like", async (req, res) => {
 });
 
 // GET ALL POSTS BY A USER
-router.get("/user/:id", async (req, res) => {
+router.get("/user/:username", async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findOne({ username: req.params.username });
     const userPosts = await Post.find({ userId: user._id });
 
     res.status(200).json(userPosts);

@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -20,6 +21,7 @@ mongoose.connect(
 );
 
 // middleware
+app.use(cors());
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));

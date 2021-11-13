@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { Container } from "../styles/Container.styled";
+// import axios from "axios";
 // import { Link } from "react-router-dom";
 
 export default function Stories() {
@@ -9,6 +10,23 @@ export default function Stories() {
   let leftSlideButton = useRef();
   let rightSlideButton = useRef();
   let position = 0;
+
+  // useEffect(() => {
+  //   const fetchPost = async () => {
+  //     const res = await axios.get(`http://localhost:8800/api/posts/${postId}`);
+  //     const userIds = res.data.likes;
+
+  //     for (let i = 0; i < userIds.length; i++) {
+  //       // Perform asynchronous actions and await them, it will work
+  //       const response = await axios.get(
+  //         `http://localhost:8800/api/users/${userIds[i]}`
+  //       );
+  //       users.push(response.data);
+  //     }
+  //     setLikedBy(users);
+  //   };
+  //   fetchPost();
+  // }, []);
 
   useEffect(() => {
     // select the left part of stories

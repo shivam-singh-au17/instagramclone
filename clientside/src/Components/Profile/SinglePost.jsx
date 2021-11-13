@@ -1,6 +1,5 @@
 import { React, useEffect, useState } from "react";
 import styled from "styled-components";
-import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 const SubContainer = styled.div`
     display: flex;
@@ -151,7 +150,7 @@ const CommentForm = styled.form`
 
     svg{
         cursor: pointer;
-        transform: rotate(0deg);
+        transform: rotate(0deg) !important;
     }
 
     input{
@@ -185,7 +184,7 @@ const EngagementButtons = styled.div`
     border-top: 1px solid #efefef;
 
     svg {
-        transform: rotate(0deg);
+        transform: rotate(0deg) !important;
         margin: auto 10px;
         cursor: pointer;
     }

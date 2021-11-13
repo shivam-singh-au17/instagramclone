@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -15,6 +15,37 @@ const LeftPart = styled.div`
     text-align: center;
     /* background-color: grey; */
     margin-right: 30px;
+    display: flex;
+    justify-content: center;
+
+    .profileImg {
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    .showStoryBorder {
+        background-image: linear-gradient(
+		    45deg,
+            #ffa95f 5%,
+            #f99c4a 15%,
+            #f47838 30%,
+            #e75157 45%,
+            #d92d7a 70%,
+            #cc2a92 80%,
+            #c32e92 95%
+	    );
+        box-sizing: border-box;
+        overflow: hidden;
+        padding: 5px;
+        cursor: pointer;
+
+        ::-webkit-scrollbar {
+            width: 0 !important;
+            background: transparent !important;
+        }
+    }
 `;
 
 const RightPart = styled.div`
@@ -24,6 +55,7 @@ const RightPart = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: left;
+    padding-top: 20px;
 
     ul {
         display: flex;
@@ -75,13 +107,6 @@ const StyledLink = styled(Link)`
     }
 `;
 
-const profileImgStyle = {
-    width: "150px",
-    height: "150px",
-    borderRadius: "100%",
-    objectFit: "cover"
-}
-
 const Tabs = styled.div`
     display: flex;
     align-items: center;
@@ -122,12 +147,100 @@ const Tabs = styled.div`
     }
 `;
 
-const Header = ({ profileImg, username, is_verified, posts_count, followers_count, following_count, display_name, bio }) => {
+const StoryDisplay = styled.div`
+    z-index: 300;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: #1B1B1A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .storySubDiv {
+        width: 450px;
+        height: 700px;
+        background-color: black !important;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        position: relative;
+        justify-content: space-around;
+        background: linear-gradient(to bottom, rgba(226, 224, 224, 0.6) 0%, rgba(255,255,255,0) 20%) top,
+                linear-gradient(to top, rgba(226, 224, 224, 0.6) 0%, rgba(255,255,255,0) 20%) bottom;
+        z-index: 1;
+
+        .storyImg {
+            width: 100%;
+            z-index: 0;
+        }
+    }
+
+    .storyHeader {
+        display: flex;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        /* background-color: burlywood; */
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        font-size: 14px;
+        color: white;
+        font-weight: 500;
+        letter-spacing: 1px;
+        box-sizing: border-box;
+
+        img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 100%;
+            margin-right: 10px;
+        }
+    }
+
+`;
+
+const CancelButton = styled.div`
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    position: absolute;
+    cursor: pointer;
+`;
+
+const Header = ({ profileImg, stories, username, is_verified, posts_count, followers_count, following_count, display_name, bio }) => {
+
+    const [showStory, setShowStory] = useState(false);
+
     return (
         <>
             <Container>
                 <LeftPart>
-                    <img src={profileImg} alt="" style={profileImgStyle} />
+                    <img
+                        src={profileImg}
+                        alt="" className={stories.length > 0 ? "profileImg showStoryBorder" : "profileImg"}
+                        onClick={() => { if (stories.length > 0) return setShowStory(true) }}
+                    />
+                    {
+                        showStory && stories.map((el, index) => {
+                            return <StoryDisplay>
+                                <CancelButton onClick={() => {setShowStory(false)}}>
+                                    <svg aria-label="Close" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg>
+                                </CancelButton>
+                                <div className="storySubDiv">
+                                    <div className="storyHeader">
+                                        <img src={profileImg} alt={username} />
+                                        {username}
+                                    </div>
+                                    <img className="storyImg" src={el.item} alt={index} />
+                                </div>
+                            </StoryDisplay>
+                        })
+                    }
                 </LeftPart>
                 <RightPart>
                     <Name>

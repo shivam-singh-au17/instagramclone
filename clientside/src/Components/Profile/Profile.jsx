@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Header } from "./Header";
 import { DispayPosts } from "./DisplayPosts";
 import { SinglePost } from "./SinglePost";
-import { ClassNames } from "@emotion/react";
 
 const Container = styled.div`
     display: flex;
@@ -109,6 +108,16 @@ const Profile = () => {
         followers_count: 183,
         following_count: 0,
         followed: true,
+        stories: [
+            {
+                id: 901,
+                item: "https://www.rollingstone.com/wp-content/uploads/2019/12/TaylorSwiftTimIngham.jpg"
+            },
+            // {
+            //     id: 902,
+            //     item: "https://api.time.com/wp-content/uploads/2017/12/taylor-swift-person-of-year-2017-time-magazine-2.jpg?w=1600&quality=70"
+            // }
+        ],
         posts: [
             {
                 id: 101,

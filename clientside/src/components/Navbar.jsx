@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Container } from "../styles/Container.styled";
 import Search from "./Search";
+import CreatePost from "./CreatePost";
 
 export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
+  const [showCreate, setShowCreate] = useState(false);
 
   function handleShowSearch(e) {
     if (e.target.value.length) {
@@ -15,12 +17,21 @@ export default function Navbar() {
     }
   }
 
+  function handleShowCreate() {
+    if (showCreate) {
+      setShowCreate(false);
+    } else {
+      setShowCreate(true);
+    }
+  }
+
   return (
     <NavSection>
       <Container>
         <Logo src="images/logo.png" alt="Instagram" />
         <input type="text" placeholder="Search" onChange={handleShowSearch} />
         {showSearch && <Search />}
+        {showCreate && <CreatePost handleShowCreate={handleShowCreate} />}
         <Nav>
           <Link to="/">
             <img src="images/home.svg" alt="" />
@@ -28,9 +39,13 @@ export default function Navbar() {
           <Link to="/">
             <img src="images/message.svg" alt="" />
           </Link>
-          <Link to="/">
+          <button
+            onClick={() => {
+              handleShowCreate();
+            }}
+          >
             <img src="images/plus.svg" alt="" />
-          </Link>
+          </button>
           <Link to="/">
             <img src="images/compasss.svg" alt="" />
           </Link>
@@ -117,6 +132,10 @@ const Nav = styled.div`
   a:nth-child(2) img {
     width: 21px;
     margin-right: 1px;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
 

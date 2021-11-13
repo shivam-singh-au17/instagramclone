@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "backendside",
+=======
+  "name": "instagram-clone",
+>>>>>>> 15a049474335aeb169e9ddb281c148b29a51c1b0
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
+<<<<<<< HEAD
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -14,14 +19,28 @@
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+=======
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+>>>>>>> 15a049474335aeb169e9ddb281c148b29a51c1b0
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+<<<<<<< HEAD
     "express-session": "^1.17.2",
     "mongoose": "^5.9.25",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.13",
     "passport": "^0.5.0",
     "passport-facebook": "^3.0.0"
+=======
+    "helmet": "^4.6.0",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
+>>>>>>> 15a049474335aeb169e9ddb281c148b29a51c1b0
   }
 }

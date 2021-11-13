@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Header } from "./Header";
 import { DispayPosts } from "./DisplayPosts";
 import { SinglePost } from "./SinglePost";
+import { CancelButton, DisplaySinglePost, LeftButton, RightButton } from "./ProfilePageUI";
 
 const Container = styled.div`
     display: flex;
@@ -12,87 +13,6 @@ const Container = styled.div`
     padding: 30px 20px;
     min-height: 100vh;
     /* background-color: burlywood; */
-`;
-
-const DisplaySinglePost = styled.div`
-    display: flex;
-    position: fixed;
-    justify-content: space-evenly;
-    align-items: center;
-    top: 0;
-    left: 0;
-    z-index: 30;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-
-    svg {
-        transform: rotate(270deg);
-    }
-`;
-
-const LeftButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    /* font-size: 30px; */
-    font-weight: bold;
-    z-index: 300;
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-    cursor: pointer;
-
-    svg {
-        transform: rotate(270deg);
-    }
-
-    .hideBtn {
-        display: none !important;
-    }
-
-    .showBtn {
-        display: flex !important;
-    }
-`;
-
-const RightButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    /* font-size: 30px; */
-    font-weight: bold;
-    z-index: 300;
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-    cursor: pointer;
-
-    svg {
-        transform: rotate(90deg);
-    }
-
-    .hideBtn {
-        display: none !important;
-    }
-
-    .showBtn {
-        display: flex !important;
-    }
-`;
-
-const CancelButton = styled.div`
-    top: 10px;
-    right: 10px;
-    padding: 10px;
-    position: absolute;
-    cursor: pointer;
 `;
 
 const Profile = () => {

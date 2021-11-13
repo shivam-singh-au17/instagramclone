@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import styled from "styled-components";
+import { EngagementButtons } from "./ProfilePageUI";
 
 const SubContainer = styled.div`
     display: flex;
@@ -173,25 +174,6 @@ const CommentForm = styled.form`
     font-weight: 600;
     cursor: pointer;
   }
-`;
-
-const EngagementButtons = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-content: space-around;
-    margin-bottom: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #efefef;
-
-    svg {
-        transform: rotate(0deg) !important;
-        margin: auto 10px;
-        cursor: pointer;
-    }
-
-    .engagementLeftSection {
-        display: flex;
-    }
 `;
 
 const SinglePost = ({id, item, likes, caption, comments_count, user, is_verified, profileImg}) => {

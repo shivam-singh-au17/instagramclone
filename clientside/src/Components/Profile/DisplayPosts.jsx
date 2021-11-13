@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import styled from "styled-components";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
+import { HoveredPost, PostItem } from "./ProfilePageUI";
 
 const Container = styled.div`
     display: grid;
@@ -13,46 +14,6 @@ const Container = styled.div`
         width: 100%;
         height: 300px;
         object-fit: cover;
-    }
-`;
-
-const HoveredDiv = styled.div`
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    font-size: 18px;
-    width: 100%;
-    height: 99%;
-    cursor: pointer;
-
-    svg {
-        font-size: 18px;
-        margin-left: 5px;
-    }
-    
-    .likesBox {
-        font-size: 18px;
-        margin-right: 25px;
-        display: flex;
-        align-items: center;
-    }
-
-    .commentsBox {
-        display: flex;
-        align-items: center;
-    }
-`;
-
-const PostItem = styled.div`
-    position: relative;
-    
-    &:hover{
-        cursor: pointer;
     }
 `;
 
@@ -89,7 +50,7 @@ const DispayPosts = ({ posts, handlePostClick }) => {
                         <img src={el.item} alt={index} key={index} />
                         
                         {showLikes === index
-                            ? <HoveredDiv>
+                            ? <HoveredPost>
                                 <div className="likesBox">
                                     {changeNumberFormat(el.likes)}
                                     <FavoriteIcon />
@@ -98,7 +59,7 @@ const DispayPosts = ({ posts, handlePostClick }) => {
                                     {changeNumberFormat(el.comments_count)}
                                     <ModeCommentIcon />
                                 </div>
-                            </HoveredDiv>
+                            </HoveredPost>
                             : null
                         }
                     </PostItem>

@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { BioPart, CancelButton, StyledLink } from "./ProfilePageUI";
 
 const Container = styled.div`
     /* margin-bottom: 30px; */
@@ -81,31 +81,6 @@ const BlueTick = styled.img`
     margin-left: 8px;
 `;
 
-const BioPart = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-
-    .displayName {
-        font-weight: 600;
-    }
-
-    a {
-        text-decoration: none;
-        font-weight: 600;
-        color: #00376b
-    }
-`;
-
-const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: #8e8e8e;
-
-    &:focus, &:hover, &:visited, &:link, &:active {
-        text-decoration: none;
-        color: #262626;
-    }
-`;
 
 const Tabs = styled.div`
     display: flex;
@@ -204,21 +179,14 @@ const StoryDisplay = styled.div`
 
 `;
 
-const CancelButton = styled.div`
-    top: 10px;
-    right: 10px;
-    padding: 10px;
-    position: absolute;
-    cursor: pointer;
-`;
-
 
 const Header = ({ profileImg, stories, username, is_verified, posts_count, followers_count, following_count, display_name, bio }) => {
 
     const [showStory, setShowStory] = useState(false);
     const [running, setRunning] = useState(false);
     const [progress, setProgress] = useState(0);
-    let interval = undefined;
+    // const [statusInterval, setStatusInterval] = useState(undefined);
+    let statusInterval = undefined;
 
     const ProgressBarContainer = styled.div`
         position: absolute;
@@ -239,23 +207,22 @@ const Header = ({ profileImg, stories, username, is_verified, posts_count, follo
 
     useEffect(() => {
         if (running) {
-            interval = setInterval(() => {
+            let temp = setInterval(() => {
                 setProgress((prev) => prev + 1);
-            }, 150);
+            }, 100);
         } else {
-            clearInterval(interval);
+            clearInterval(statusInterval);
         }
     }, [running]);
 
     useEffect(() => {
         if (progress === 100) {
             setRunning(false);
-            clearInterval(interval);
+            clearInterval(statusInterval);
             setShowStory(false);
         }
     }, [progress]);
     
-    console.log("Progress", progress, running)
     return (
         <>
             <Container>
@@ -327,7 +294,7 @@ const Header = ({ profileImg, stories, username, is_verified, posts_count, follo
                 <ul>
                     <li>
                         <svg aria-label="" height="12" role="img" viewBox="0 0 48 48" width="12"><path clip-rule="evenodd" d="M45 1.5H3c-.8 0-1.5.7-1.5 1.5v42c0 .8.7 1.5 1.5 1.5h42c.8 0 1.5-.7 1.5-1.5V3c0-.8-.7-1.5-1.5-1.5zm-40.5 3h11v11h-11v-11zm0 14h11v11h-11v-11zm11 25h-11v-11h11v11zm14 0h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11zm14 28h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11z" fill-rule="evenodd"></path></svg>
-                        <StyledLink to="/posts"> Posts </StyledLink>
+                        <StyledLink to="/"> Posts </StyledLink>
 
                     </li>
                     <li>

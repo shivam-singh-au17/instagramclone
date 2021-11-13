@@ -12,7 +12,9 @@ function App() {
 				{/* <Route
 					path="/login"
 					element={user ? < Navigate to="/" /> : "Login"}
-				/>*/}
+				>
+					{user ? <Navigate to="/" /> : "Login"}
+				</Route> */}
 				<Route path="/messenger" element={<Messenger />} />
 			</Routes>
 		</>

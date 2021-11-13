@@ -1,0 +1,93 @@
+.main{
+    width: 350px;
+    text-align: center;
+    margin: 22px auto 30px;
+}
+.inppaper{  
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #DBDBDB;
+}
+.inpBorder{
+    border: .5px solid #DBDBDB;
+    padding-bottom: .7rem;
+    background-color: #fafafa;
+    margin-bottom: 5px;
+}
+.para{
+    color: #8e8e8e;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.fbsignupbtn{
+    display: flex;
+    justify-content: center;
+    background-color: #0095F6;
+    color: white;
+    padding: .3rem;
+    border-radius: .3rem;
+}
+.fbsignupbtn:hover{
+    cursor: pointer;
+}
+.or_div{
+    margin: 1rem 0px;
+    color: rgb(129, 129, 129);
+    display: flex;
+    justify-content: space-between;
+}
+.or_div>p{
+    width: 150px;
+    font-size: small;
+    font-weight: 600;
+}
+.or_div>div{
+    width: 100%;
+    height: 1px;
+    margin-top: 3.5%;
+    border-bottom: .5px solid rgb(196, 196, 196);
+}
+.fb_div{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0rem .5rem 0rem;
+    font-size: small;
+    gap: 3%;
+    color: #385185;
+    font-weight: 600;
+}
+.forgotpass_para{
+    font-size: small;
+    font-weight: 600;
+}
+.loginpaper{
+    border: 1px solid #DBDBDB;
+    text-align: center;
+    padding: 1.5rem;
+}
+.login_link{
+    text-decoration: none;
+    color: #30a4df;
+}
+.afterbtnPara{
+    color: rgba(var(--f52,142,142,142),1);
+    font-size: 12px;
+    line-height: 16px;
+    margin: 10px 0px;
+    text-align: center;
+}
+.getapp_div{
+    width: 100%;
+    text-align: center;
+}
+.getapp_div>p{
+    padding: 1rem;
+}
+.getapp_div>div{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+}

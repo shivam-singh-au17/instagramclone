@@ -7,7 +7,11 @@ router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     const followings = user.followings;
-    const followingStories = await Story.find({ userId: { $in: followings } });
+    const followingStories = await Story.find({
+      userId: { $in: followings },
+    })
+      .lean()
+      .exec();
 
     res.status(200).json(followingStories);
   } catch (err) {

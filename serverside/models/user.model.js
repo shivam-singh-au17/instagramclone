@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
     name: { type: String, required: true, max: 50 },
     email: { type: String, required: true, unique: true, max: 50 },
     password: { type: String, required: true, min: 6 },
-    bio: { type: String, max: 150 },
+    bio: { type: String, default: "", max: 150 },
     phoneNumber: { type: String },
     profilePicture: { type: String, default: "" },
     followers: { type: Array, default: [] },
@@ -14,6 +14,8 @@ const userSchema = new mongoose.Schema(
     savedPosts: { type: Array, default: [] },
     taggedPosts: { type: Array, default: [] },
     likedPosts: { type: Array, default: [] },
+    stories: { type: Array, default: [] },
+    isVerified: { type: Boolean, default: false },
     isAdmin: { type: Boolean, default: false },
   },
   { timestamps: true }

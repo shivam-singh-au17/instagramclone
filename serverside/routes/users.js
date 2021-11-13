@@ -3,10 +3,24 @@ const User = require("../models/user.model");
 const Post = require("../models/post.model");
 
 // GET A USER
-router.get("/:id", async (req, res) => {
+router.get("/:username", async (req, res) => {
   try {
     // find the user with id
-    const user = await User.findById(req.params.id);
+    const user = await User.findOne({ username: req.params.username });
+
+    // send everything except the password
+    const { password, ...other } = user._doc;
+    res.status(200).json(other);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+});
+
+// GET A USER BY ID
+router.get("/id/:userId", async (req, res) => {
+  try {
+    // find the user with id
+    const user = await User.findById(req.params.userId);
 
     // send everything except the password
     const { password, ...other } = user._doc;

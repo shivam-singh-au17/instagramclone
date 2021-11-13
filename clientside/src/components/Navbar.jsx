@@ -28,7 +28,7 @@ export default function Navbar() {
           <Link to="/">
             <img src="images/message.svg" alt="" />
           </Link>
-          <Link to="/">
+          <Link to="/create/select">
             <img src="images/plus.svg" alt="" />
           </Link>
           <Link to="/">

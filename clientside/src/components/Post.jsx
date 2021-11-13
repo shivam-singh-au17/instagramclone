@@ -7,6 +7,7 @@ import axios from "axios";
 import { format } from "timeago.js";
 
 export default function Post({ post }) {
+  console.log("post: ", post);
   const [showLikes, setShowLikes] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
 
@@ -24,7 +25,7 @@ export default function Post({ post }) {
     // current fetch user
     const fetchCurrentUser = async () => {
       const res = await axios.get(
-        `http://localhost:8800/api/users/${currentUserId}`
+        `http://localhost:8800/api/users/id/${currentUserId}`
       );
       setCurrentUser(res.data);
       setIsSaved(res.data.savedPosts.includes(post._id));
@@ -49,7 +50,7 @@ export default function Post({ post }) {
     // uske user ko fetch kar rahe hain
     const fetchUser = async () => {
       const res = await axios.get(
-        `http://localhost:8800/api/users/${post.userId}`
+        `http://localhost:8800/api/users/id/${post.userId}`
       );
       setUser(res.data);
       console.log(res.data);

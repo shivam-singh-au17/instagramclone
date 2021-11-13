@@ -11,8 +11,41 @@ import { Link } from "react-router-dom";
 import sigupStyles from "./signup.module.css";
 import FacebookIcon from "@material-ui/icons/Facebook";
 
+const iniState = {
+  userEmail: "",
+  userName: "",
+  userUserName: "",
+  userPassword: "",
+};
+
 function Registration() {
   const [showPassword, setShowPassword] = useState(false);
+  const [data, setData] = useState(iniState);
+
+  const handleChang = (e) => {
+    const { name, value, type, checked } = e.target;
+    const myAllUserData = {
+      ...data,
+      [name]: type === "checkbox" ? checked : value,
+    };
+    setData(myAllUserData);
+  };
+
+  const handleClick = () => {
+    fetch("https://instagramclonedata.herokuapp.com/signup", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => {
+      console.log(data);
+    });
+    setData(iniState);
+    alert("You have successfully registered please go to the login page.");
+  };
+
+  const { userEmail, userName, userUserName, userPassword } = data;
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -46,24 +79,30 @@ function Registration() {
         </div>
         <div className={sigupStyles.inpBorder}>
           <Styledinp
+            name="userEmail"
             label="Phone number or email"
-            name="email"
             type="email"
             variant="filled"
+            value={userEmail}
+            onChange={handleChang}
           />
         </div>
         <div className={sigupStyles.inpBorder}>
           <Styledinp
+            value={userName}
+            onChange={handleChang}
             label="Full Name"
-            name="email"
+            name="userName"
             type="email"
             variant="filled"
           />
         </div>
         <div className={sigupStyles.inpBorder}>
           <Styledinp
+            value={userUserName}
+            onChange={handleChang}
             label="Username"
-            name="email"
+            name="userUserName"
             type="email"
             variant="filled"
           />
@@ -71,7 +110,9 @@ function Registration() {
         <div className={sigupStyles.inpBorder}>
           <Styledinp
             variant="filled"
-            name="password"
+            name="userPassword"
+            value={userPassword}
+            onChange={handleChang}
             size="small"
             type={showPassword ? "text" : "password"}
             label="Password"
@@ -91,7 +132,10 @@ function Registration() {
             }}
           />
         </div>
-        <SignupBtn>Sign up</SignupBtn>
+
+        <SignupBtn type="submit" onClick={handleClick}>
+          Sign up
+        </SignupBtn>
         <p className={sigupStyles.afterbtnPara}>
           By signing up, you agree to our Terms , Data Policy and Cookies Policy
           .

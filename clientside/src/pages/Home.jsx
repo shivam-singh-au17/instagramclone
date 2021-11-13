@@ -1,10 +1,10 @@
 import React from "react";
 
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Stories from "../components/Stories";
-import Feeds from "../components/Feeds";
-import FooterHome from "../components/FooterHome";
+import Navbar from "../Components/Navbar";
+import Stories from "../Components/Stories";
+import Feeds from "./../Components/Feeds";
+import FooterHome from "./../Components/FooterHome";
 import { Link } from "react-router-dom";
 import { Container } from "../styles/Container.styled";
 

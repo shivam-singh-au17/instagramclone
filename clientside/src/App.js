@@ -7,7 +7,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Profile />} />
+        <Route path="/userid" element={<Profile />} />
       </Routes>
     </>
   );

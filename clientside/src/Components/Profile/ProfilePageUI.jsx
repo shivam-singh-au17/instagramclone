@@ -92,7 +92,7 @@ export const HoveredPost = styled.div`
     top: 0;
     z-index: 10;
     background-color: rgba(0, 0, 0, 0.3);
-    color: white;
+    color: white !important;
     font-size: 18px;
     width: 100%;
     height: 99%;

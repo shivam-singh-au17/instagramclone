@@ -34,5 +34,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(8800, () => {
-  console.log("backend server is running!");
+  console.log("Backend server is listening at port 8800...");
 });

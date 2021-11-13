@@ -12,6 +12,8 @@ const Container = styled.div`
     position: relative;
     padding: 30px 20px;
     min-height: 100vh;
+    width: 975px;
+    margin: auto;
     /* background-color: burlywood; */
 `;
 

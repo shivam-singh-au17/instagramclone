@@ -1,20 +1,21 @@
 {
-  "name": "serverside",
+  "name": "instagram-clone",
   "version": "1.0.0",
-  "description": "Instagram Clone Project",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "Instagram Group",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
+    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.25",
-    "morgan": "^1.10.0"
+    "helmet": "^4.6.0",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
   }
 }

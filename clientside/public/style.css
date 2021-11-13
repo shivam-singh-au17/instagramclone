@@ -1,0 +1,44 @@
+/* Variables */
+:root {
+  --primary-color: #00abe9;
+  --secondary-color: #ff3278;
+  --border-color: #dbdbdb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  color: #262626;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background-color: #fafafa;
+  /* height: 2000px; */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+}
+
+.container {
+  max-width: 975px;
+  margin: auto;
+  padding: 0px 20px;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}

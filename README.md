@@ -51,14 +51,6 @@ npm start
 -  [Slack](https://slack.com/intl/en-in/) for communication.
 -  [Zoom](https://zoom.us/) for show work.
 
-# Some screenshots of our project
-
-1.
-2.
-3.
-4.
-5.
-
 
 ***So this was the project we have created with our efforts. We have added the screenshots for our audience to understand easily.***
 
@@ -72,7 +64,7 @@ npm start
 **These challenges improve our abilities to be a good Team Player and finally we did the constitution of all the problems together and made our perfect project.**
 
 # Team members and contributors
-**By following a well-structured way, all of us successfully completed our responsibilities before the given time. The members of team MEDIUM are-**
+**By following a well-structured way, all of us successfully completed our responsibilities before the given time. The members of team INSTGRAM are-**
 
 #### 1. Sagar Biswas
 **Github:**  [mrsagar105](https://github.com/mrsagar105) 

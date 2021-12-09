@@ -1,6 +1,5 @@
 # Instagram Clone
 
-
 ![Logo](https://wallpaperhook.com/wp-content/uploads/2021/06/Instagram-Logo-Wallpaper-From-WallpaperHook.com-For-Free.png)
 
 
@@ -78,3 +77,4 @@ npm start
 - I am very glad that I completed this project ahead of time and got a good knowledge of Reject Framework and Figma File and got valuable experience.
 - I’m feeling very proud to get such hard-working team members and also feeling very fortunate for being a part of Masai School because of which I got the experience of cloning such a wonderful website.
 ### Thank you for giving it a read...
+
